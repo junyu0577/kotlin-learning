@@ -11,14 +11,17 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        findViewById<View>(R.id.click).setOnClickListener(this)
+        findViewById<View>(R.id.basic_btn).setOnClickListener(this)
+        findViewById<View>(R.id.function_btn).setOnClickListener(this)
 
     }
 
     override fun onClick(v: View) {
         val id = v.id
-        if (id == R.id.click) {
+        if (id == R.id.basic_btn) {
             startActivity(Intent(this@MainActivity, BasicActivity::class.java))
+        }else if (id == R.id.function_btn) {
+            startActivity(Intent(this@MainActivity, FunctionActivity::class.java))
         }
     }
 }

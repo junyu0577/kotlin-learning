@@ -1,12 +1,12 @@
 package com.github.junyu.kotlin
 
-import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+
 
 @Suppress("UsePropertyAccessSyntax")
 class BasicActivity : AppCompatActivity(), View.OnClickListener {
@@ -51,8 +51,49 @@ class BasicActivity : AppCompatActivity(), View.OnClickListener {
 
         loopOperator()
 
+        branchOperator()
+
         //click listener
         addClickListener()
+
+    }
+
+    private fun branchOperator() {
+        // use when to replace switch case
+        when (1) {
+            1 -> println("one")
+            2 -> println("two")
+            else -> {
+                println("three")
+            }
+        }
+
+        when (7) {
+            1, 2, 3 -> println("first")
+            4, 5, 6 -> println("second")
+            else -> println("third")
+        }
+
+        when (7) {
+            in 0..10 -> println("一")
+            !in 8..10 -> println("二")
+            else -> {
+                println("零")
+            }
+        }
+
+        val str = "abc"
+        when (str) {
+            is String -> println("$str is String")
+            !is String -> println("$str is not String")
+        }
+
+        when {
+            true ->
+                println("----------")
+            else ->
+                println("==========")
+        }
 
     }
 
@@ -88,10 +129,33 @@ class BasicActivity : AppCompatActivity(), View.OnClickListener {
 //            println("i: $i")
 //        }
 
-        val array = arrayListOf("aa", "bb", "cc")
-        for ((index, value) in array.withIndex()) {
-            println("$index -> $value")
+        val elements = arrayListOf("a", 'b', 3, 3.1f, 3.2)
+        for (i in elements) {
+            print("$i ")
         }
+        println()
+
+        for (i in Array(5, { index -> (index * 3) })) {
+            println(i)
+        }
+
+        for (j in booleanArrayOf(true, false, true)) {
+            println("booleanArray：$j")
+        }
+
+        val array = arrayListOf("aa", "bb", "cc", null, "dd")
+        for ((index, value) in array.withIndex()) {
+            value?.let {//filter null elements
+                println("$index -> $value")
+            }
+        }
+
+        //or iterate over the elements
+        val iterator: Iterator<Any?> = array.iterator()
+        while (iterator.hasNext()) {
+            println("iterate loop: ${iterator.next()}")
+        }
+
 
         //arrayList
         val list = ArrayList<String>()
@@ -102,21 +166,35 @@ class BasicActivity : AppCompatActivity(), View.OnClickListener {
         for (i in list.indices) {
             println("index = $i and element is ${list[i]}")
         }
-
     }
 
     private fun stringTest() {
         val price = "9.99"
-        println("$$price")
+        println("\$$price")
         println(addNum(3, 3))
 
-        var s = "123"
+        val s = "123"
         println(s.length)
         var s1: String? = null
-        println(s1?.length)
+//        s1 = "44"
+        println("s1 length ${s1?.length ?: -1}")
 //        println(s1!!.length) //npe
-    }
 
+        var str = """<123<456
+            < 111 <
+            < 222
+            < 333
+        """.trimMargin()
+        println("before: str length is ${str.length}")
+//        str = str.trim()
+        str = str.trimMargin("<")
+        println("after : str length is ${str.length} $str")
+
+        println("   ".isBlank())//true
+
+        val num2 : Int? = 3.5 as? Int  //with ?  the value will be null.Otherwise throw ClassCastException,
+        println("nun2 = $num2")
+    }
 
     private fun bitOperator() {
         val x = 1 shl 4
@@ -168,8 +246,9 @@ for (c in s) {
         sb.append("a===b: $result \n")
     }
 
-    private fun addNum(a: Int, b: Int): String {
-        return (a + b).toString()
+    private fun addNum(a: Int, b: Int): String? {
+        var result: String? = (a + b).toString()
+        return result
     }
 
 }
