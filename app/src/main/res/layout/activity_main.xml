@@ -19,11 +19,11 @@
             android:text="basic" />
 
         <Button
-            android:id="@+id/function_btn"
+            android:id="@+id/dataBinding_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="function" />
+            android:text="dataBinding" />
 
 
     </LinearLayout>

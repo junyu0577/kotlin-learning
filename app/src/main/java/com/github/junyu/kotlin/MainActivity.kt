@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_main)
 
         findViewById<View>(R.id.basic_btn).setOnClickListener(this)
-        findViewById<View>(R.id.function_btn).setOnClickListener(this)
+        findViewById<View>(R.id.dataBinding_btn).setOnClickListener(this)
 
     }
 
@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         val id = v.id
         if (id == R.id.basic_btn) {
             startActivity(Intent(this@MainActivity, BasicActivity::class.java))
-        }else if (id == R.id.function_btn) {
+        }else if (id == R.id.dataBinding_btn) {
             startActivity(Intent(this@MainActivity, FunctionActivity::class.java))
         }
     }

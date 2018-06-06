@@ -42,6 +42,11 @@ class AndroidUtils private constructor(){
             return verName
         }
 
+        val sdkVersion: Int
+            get() = android.os.Build.VERSION.SDK_INT
+
+        val androidBoard:String
+         get() = android.os.Build.BOARD
     }
 
 
