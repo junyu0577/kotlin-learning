@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Kotlin Application</string>
     <string name="title_activity_base_application">BaseApplication</string>
+    <string name="delegate_lazy_text">%1$s</string>
+    <string name="delegate_observer_text">old=%1$s new=%2$s</string>
+    <string name="delegate_number_text">number: %1$s</string>
+    <string name="delegate_map_text">%1$s:%2$d</string>
 </resources>

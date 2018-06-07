@@ -22,7 +22,8 @@
         <activity
             android:name=".BaseApplication"
             android:label="@string/title_activity_base_application"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ui.DelegateActivity"></activity>
     </application>
 
 </manifest>

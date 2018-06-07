@@ -19,6 +19,14 @@
             android:text="basic" />
 
         <Button
+            android:id="@+id/delegate_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="delegate" />
+
+
+        <Button
             android:id="@+id/dataBinding_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
