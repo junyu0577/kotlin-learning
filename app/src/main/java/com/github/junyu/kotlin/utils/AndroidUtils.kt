@@ -47,6 +47,9 @@ class AndroidUtils private constructor(){
 
         val androidBoard:String
          get() = android.os.Build.BOARD
+
+        val androidBrand:String
+            get() = android.os.Build.BRAND
     }
 
 

@@ -1,9 +1,10 @@
-package com.github.junyu.kotlin
+package com.github.junyu.kotlin.ui
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.github.junyu.kotlin.R
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
