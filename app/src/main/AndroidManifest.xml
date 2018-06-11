@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.github.junyu.kotlin">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".BaseApplication"
         android:allowBackup="true"
@@ -18,12 +20,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.BasicActivity" />
-        <activity android:name=".ui.FunctionActivity" />
-        <activity
-            android:name=".BaseApplication"
-            android:label="@string/title_activity_base_application"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ui.DelegateActivity"></activity>
+        <activity android:name=".ui.DataBindingActivity" />
+        <activity android:name=".ui.DelegateActivity" />
+        <activity android:name=".ui.RetrofitActivity"/>
     </application>
 
 </manifest>

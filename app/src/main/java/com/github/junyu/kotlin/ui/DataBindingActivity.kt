@@ -15,7 +15,7 @@ import com.github.junyu.kotlin.utils.AndroidUtils
  * @date 2018/6/6 10:40
  *
  */
-class FunctionActivity : AppCompatActivity() {
+class DataBindingActivity : AppCompatActivity() {
 
     private val updateMsg = UpdateMsg()
 
@@ -23,12 +23,12 @@ class FunctionActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this@FunctionActivity, R.layout.activity_function)
+        binding = DataBindingUtil.setContentView(this@DataBindingActivity, R.layout.activity_function)
 
         binding.versionMode = updateMsg
 
-        updateMsg.versionCode.set(AndroidUtils.getVersionCode(this@FunctionActivity))
-        updateMsg.versionName.set(AndroidUtils.getVersionName(this@FunctionActivity))
+        updateMsg.versionCode.set(AndroidUtils.getVersionCode(this@DataBindingActivity))
+        updateMsg.versionName.set(AndroidUtils.getVersionName(this@DataBindingActivity))
         updateMsg.isForceUpdate.set(setIsForceUpdate())
 //        updateMsg.device.set(Device(AndroidUtils.sdkVersion,AndroidUtils.androidBoard))
         updateMsg.device.set(Device(AndroidUtils.sdkVersion, AndroidUtils.androidBoard, AndroidUtils.androidBrand))
