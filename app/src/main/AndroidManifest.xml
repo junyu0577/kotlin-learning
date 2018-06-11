@@ -22,7 +22,8 @@
         <activity android:name=".ui.BasicActivity" />
         <activity android:name=".ui.DataBindingActivity" />
         <activity android:name=".ui.DelegateActivity" />
-        <activity android:name=".ui.RetrofitActivity"/>
+        <activity android:name=".ui.RetrofitActivity" />
+        <activity android:name=".ui.BaseActivity"></activity>
     </application>
 
 </manifest>
