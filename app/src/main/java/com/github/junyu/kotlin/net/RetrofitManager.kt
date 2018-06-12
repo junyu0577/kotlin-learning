@@ -19,13 +19,7 @@ object RetrofitManager{
     private var client: OkHttpClient? = null
     private var retrofit: Retrofit? = null
 
-
-
-
     val service: ApiService by lazy { getRetrofit()!!.create(ApiService::class.java)}
-
-
-
 
     private fun getRetrofit(): Retrofit? {
         if (retrofit == null) {

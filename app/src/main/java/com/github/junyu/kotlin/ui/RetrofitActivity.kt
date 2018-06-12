@@ -19,9 +19,10 @@ import kotlin.properties.Delegates
 class RetrofitActivity : BaseActivity() {
 
     private var binding: ActivityRetrofitBinding by Delegates.notNull()
+    private var girlsAdapter: GirlsAdapter  by Delegates.notNull()
 
     private var startTime: Long by Delegates.notNull()
-    private val requestTime = 1000
+    private val requestTime = 2000
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,11 +39,9 @@ class RetrofitActivity : BaseActivity() {
             e.onNext(girls)
         }.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe({ result ->
 
-            val girlsAdapter = GirlsAdapter(this,result.results)
-            binding.imageRv.layoutManager = GridLayoutManager(this,2)
-            binding.imageRv.adapter = girlsAdapter
-
+            girlsAdapter = GirlsAdapter(this, result.results)
             dismissLoadView()
+
         }, { error ->
             dismissLoadView()
             error.printStackTrace()
@@ -51,14 +50,21 @@ class RetrofitActivity : BaseActivity() {
 
     private fun dismissLoadView() {
         val spendTime = System.currentTimeMillis() - startTime
-        if (spendTime >= requestTime) {//wait 1s
+        if (spendTime >= requestTime) {//wait 2s
             binding.viewLoading.loadingView.visibility = View.GONE
+            initData()
         } else {
             Handler().postDelayed({
                 binding.viewLoading.loadingView.visibility = View.GONE
+                initData()
             }, (requestTime - spendTime))
         }
 
+    }
+
+    private fun initData() {
+        binding.imageRv.layoutManager = GridLayoutManager(this@RetrofitActivity, 2)
+        binding.imageRv.adapter = girlsAdapter
     }
 }
 
